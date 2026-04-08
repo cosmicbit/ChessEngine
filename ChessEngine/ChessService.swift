@@ -27,7 +27,4 @@ public class ChessService: NSObject {
     public class func shared() -> ChessService {
         return sharedChessService
     }
-    
-    
-    
 }

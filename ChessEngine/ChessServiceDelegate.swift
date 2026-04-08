@@ -9,9 +9,18 @@ import Foundation
 
 public protocol ChessServiceDelegate: AnyObject {
     
-    func chessService(_ engine: ChessService, didStart running: Bool, error: ChessError)
+    // Reads: "Chess service did update board with FEN"
+    func chessService(_ service: ChessService, didUpdateBoard fen: String, error: ChessError?)
     
-    func chessService(_ engine: ChessService,didUpdateBoard fen: String, error: ChessError)
-    func chessService(_ engine: ChessService, didFindBestMove move: String, error: ChessError)
-    func chessService(_ engine: ChessService, didGameOver winner: String?, error: ChessError)
+    // Reads: "Chess service did find best move"
+    func chessService(_ service: ChessService, didFindBestMove move: String, error: ChessError?)
+    
+    // Reads: "Chess service did end game with winner"
+    func chessService(_ service: ChessService, didGameOver winner: String?, error: ChessError?)
+}
+
+public extension ChessServiceDelegate {
+    
+    // Reads: "Chess service did start running"
+    func chessService(_ service: ChessService, didStart running: Bool, error: ChessError?) {}
 }
