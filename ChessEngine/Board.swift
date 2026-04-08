@@ -47,7 +47,19 @@ extension Board {
     public static func startPosition() -> Board {
         var board = Board()
         
-        // Rank 2: White Pawns
+        /*
+         Rank 2: White Pawns
+             a b c d e f g h
+
+          8  0 0 0 0 0 0 0 0
+          7  0 0 0 0 0 0 0 0
+          6  0 0 0 0 0 0 0 0
+          5  0 0 0 0 0 0 0 0
+          4  0 0 0 0 0 0 0 0
+          3  0 0 0 0 0 0 0 0
+          2  1 1 1 1 1 1 1 1
+          1  0 0 0 0 0 0 0 0
+        */
         board.whitePawns = 0x000000000000FF00
         // Rank 1: White Pieces
         board.whiteRooks = 0x0000000000000081   // a1 and h1
@@ -72,13 +84,17 @@ extension Board {
 extension Board {
     func debugBitboard(_ bitboard: UInt64, label: String) {
         print("\n  Bitboard: \(label)")
+        print("   a b c d e f g h\n")
         for rank in stride(from: 7, through: 0, by: -1) {
             var row = ""
+            print(rank+1, terminator: "  ")
             for file in 0..<8 {
                 let index = rank * 8 + file
                 row += (bitboard & (1 << index) != 0) ? "1 " : "0 "
             }
             print(row)
         }
+        
+        print("\nHex value: ", bitboard)
     }
 }
