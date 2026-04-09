@@ -46,5 +46,7 @@ public class ChessService: NSObject {
         board.debugBitboard(board.whiteQueens,  label: "White Queens")
         board.debugBitboard(board.whitePawns,   label: "White Pawns")
         
+        print(board.generateFEN())
+        
     }
 }
