@@ -50,3 +50,10 @@ public class ChessService: NSObject {
         
     }
 }
+
+extension ChessService {
+    public func startNewGame() {
+        self.board = Board.startPosition()
+        self.delegate?.chessService(self, didUpdateBoard: self.board.generateFEN(), error: nil)
+    }
+}
