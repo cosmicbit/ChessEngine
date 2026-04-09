@@ -47,31 +47,14 @@ extension Board {
 extension Board {
     public static func startPosition() -> Board {
         var board = Board()
-        
-        /*
-         White Pawns
-             a b c d e f g h
-
-          8  0 0 0 0 0 0 0 0
-          7  0 0 0 0 0 0 0 0
-          6  0 0 0 0 0 0 0 0
-          5  0 0 0 0 0 0 0 0
-          4  0 0 0 0 0 0 0 0
-          3  0 0 0 0 0 0 0 0
-          2  1 1 1 1 1 1 1 1
-          1  0 0 0 0 0 0 0 0
-        */
         board.whitePawns = 0x000000000000FF00
-        // Rank 1: White Pieces
         board.whiteRooks = 0x0000000000000081   // a1 and h1
         board.whiteKnights = 0x0000000000000042 // b1 and g1
         board.whiteBishops = 0x0000000000000024 // c1 and f1
         board.whiteQueens = 0x0000000000000008  // d1
         board.whiteKing = 0x0000000000000010    // e1
         
-        // Rank 7: Black Pawns
         board.blackPawns = 0x00FF000000000000
-        // Rank 8: Black Pieces
         board.blackRooks = 0x8100000000000000
         board.blackKnights = 0x4200000000000000
         board.blackBishops = 0x2400000000000000
