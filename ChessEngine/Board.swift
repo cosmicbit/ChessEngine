@@ -5,6 +5,7 @@
 //  Created by Philips Jose on 08/04/26.
 //
 
+import Foundation
 
 public struct Board {
     // White Pieces
@@ -48,7 +49,7 @@ extension Board {
         var board = Board()
         
         /*
-         Rank 2: White Pawns
+         White Pawns
              a b c d e f g h
 
           8  0 0 0 0 0 0 0 0
@@ -95,6 +96,6 @@ extension Board {
             print(row)
         }
         
-        print("\nHex value: ", bitboard)
+        print("\nHex value: 0x" + String(format: "%016llx", bitboard).uppercased())
     }
 }
